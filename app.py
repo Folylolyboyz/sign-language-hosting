@@ -1,4 +1,3 @@
-import pickle
 import numpy as np
 import json
 import joblib
@@ -9,12 +8,6 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     return "Hello World"
-
-#Using pickle
-# with open("model.pickle", "rb") as f:
-#     model_dict = pickle.load(f)
-
-# model = model_dict["model"]
 
 #Using joblib
 model = joblib.load("model.sav")
@@ -31,10 +24,3 @@ def predict():
     prediction = model_pred(data_coordinates_array["dc"])
     # print(data["dc"])
     return jsonify({"Prediction" : prediction[0]})
-
-# @app.post("/predict")
-# def predict(itemJSON:ImageJSON):
-#     data_coordinates_array = itemJSON.model_dump()["dc"]
-#     prediction = model_pred(data_coordinates_array)
-#     # return FileResponse(path)
-#     return {"Prediction" : prediction[0]}
