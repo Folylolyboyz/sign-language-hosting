@@ -38,5 +38,3 @@ def predict():
 #     prediction = model_pred(data_coordinates_array)
 #     # return FileResponse(path)
 #     return {"Prediction" : prediction[0]}
-
-app.run(host="127.0.0.1", port="8000")
